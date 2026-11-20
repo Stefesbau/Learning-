@@ -102,7 +102,8 @@ export function useStore<T>(select: (s: State) => T): T {
 }
 
 export const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4)
-export const heute = () => new Date().toISOString().slice(0, 10)
+export const isoLokal = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+export const heute = () => isoLokal(new Date())
 
 // ---------- Aktionen ----------
 
@@ -163,8 +164,8 @@ export function serie(lerntage: string[]): number {
   const set = new Set(lerntage)
   let n = 0
   const d = new Date()
-  if (!set.has(d.toISOString().slice(0, 10))) d.setDate(d.getDate() - 1)
-  while (set.has(d.toISOString().slice(0, 10))) {
+  if (!set.has(isoLokal(d))) d.setDate(d.getDate() - 1)
+  while (set.has(isoLokal(d))) {
     n++
     d.setDate(d.getDate() - 1)
   }

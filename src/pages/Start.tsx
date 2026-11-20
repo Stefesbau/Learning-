@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Lumi } from '../components/Lumi'
-import { level, serie, useStore } from '../data/store'
+import { heute, level, serie, useStore } from '../data/store'
 
 const tageszeit = () => {
   const h = new Date().getHours()
@@ -14,7 +14,7 @@ export function Start({ onAdd }: { onAdd: () => void }) {
   const klausuren = useStore((s) => s.klausuren)
   const fach = (id: string) => faecher.find((f) => f.id === id)
   const datum = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' })
-  const naechste = [...klausuren].filter((k) => k.datum >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.datum.localeCompare(b.datum))
+  const naechste = [...klausuren].filter((k) => k.datum >= heute()).sort((a, b) => a.datum.localeCompare(b.datum))
 
   return (
     <div className="page">

@@ -2,7 +2,7 @@
 
 Lern-App für Nayla. Material fotografieren oder eintippen, Lumi macht daraus Lernzettel, Karteikarten, Quiz und einen Lernplan bis zur Klausur.
 
-**App öffnen:** https://stefesbau.github.io/learning-/
+**App öffnen:** https://stefesbau.github.io/Learning-/
 Auf dem iPhone in Safari öffnen → Teilen → „Zum Home-Bildschirm“.
 
 ## Stand

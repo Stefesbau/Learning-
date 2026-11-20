@@ -51,8 +51,10 @@ export function Bibliothek({ onAdd }: { onAdd: () => void }) {
 export function FachSeite() {
   const { id } = useParams()
   const fach = useStore((s) => s.faecher.find((f) => f.id === id))
-  const themen = useStore((s) => s.themen.filter((t) => t.fachId === id))
-  const eintraege = useStore((s) => s.eintraege.filter((e) => e.fachId === id))
+  const alleThemen = useStore((s) => s.themen)
+  const alleEintraege = useStore((s) => s.eintraege)
+  const themen = alleThemen.filter((t) => t.fachId === id)
+  const eintraege = alleEintraege.filter((e) => e.fachId === id)
   if (!fach) return <div className="page"><p>Fach nicht gefunden.</p></div>
   return (
     <div className="page">
